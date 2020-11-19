@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>co ca ro</title>
+    <link rel ="stylesheet" href="style.css">
+</head>
+<body>
+<table id="game-board">
+</table>
+<button onclick="play()">Choi</button>
+<script>
+    let arr = [];
+    let player = 1;
+    function init(){
+        let html='';
+        for (let i=0;i<3;i++){
+            html +='<tr>'
+            arr [i] =[];
+            for (let j=0;j<3;j++) {
+                html += '<td onclick="play()" id="' + i + ' - ' + j + '">';
+                html += '</td>';
+            }
+            html +='</tr>'
+        }
+        document.getElementById('game-board').innerHTML=html;
+    }
+    init();
+    function play(){
+        let x = +prompt('nhap vi tri hang:');
+        let y = +prompt('nhap vi tri cot:');
+        if (player == 1){
+            arr[x][y] = '0';
+            document.getElementById(x + '-' + y).innerHTML='0'
+            player = 2;
+        }else {
+            arr[x][y] = 'X';
+            document.getElementById(x + '-' + y).innerHTML='X'
+        }
+        console.log(arr)
+    }
+</script>
+
+</body>
+</html>
